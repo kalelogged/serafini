@@ -1,0 +1,57 @@
+import java.util.*;
+import java.io.*;
+import java.util.*;
+import java.io.*;
+import java.text.*;
+import java.math.*;
+import static java.lang.System.*;
+import static java.lang.Integer.*;
+import static java.lang.Double.*;
+import static java.lang.Math.*;
+
+public class WordLadder {
+	
+	private HashSet<String> m;
+	
+	public void WordGenerator() throws Exception {
+		Scanner f = new Scanner(new File("dictionary.txt")); 
+		String word = f.next();
+		
+		m = new HashSet<String>();
+		while(f.hasNextLine()) {
+			m.add(word);
+			word = f.next();
+			//f.nextLine();
+		}
+		System.out.println("Welcome to the Word Ladder!" + "\n" + "PLease give me two English words, and I will change the first into the second by changing one letter at a time");
+		System.out.println(m);
+	}
+	
+	public WordLadder(String word1, String word2, String dictionaryName) throws Exception{
+		 word1 = m.toString();
+		 word2 = m.toString();
+		while(!m.isEmpty()){
+			for(int x = 0; x <word1.length(); x++){
+				for(int y = 0; y<word2.length(); y++) {
+					if(word1.substring(x,x+1).equals(word2.substring(y,y+1))){
+						System.out.println("Hooray! we have found a solution (and it is the set you are working on" + word2);
+					}
+				}
+			}
+		}
+	}
+	
+	 public void Print(String dictName){
+	        Scanner words = new Scanner(dictName);
+	        while(words.hasNextLine()){
+	            String res = words.nextLine();
+	            System.out.print(res);
+	        }
+	    }
+
+	public static void main(String name) throws Exception {
+		WordLadder p = new WordLadder(name, name, name);
+		p.WordGenerator();
+	}
+//VICKYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+}
